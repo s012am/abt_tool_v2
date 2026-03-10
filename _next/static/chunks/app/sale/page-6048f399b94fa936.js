@@ -966,17 +966,17 @@
         ],
         q = [
           {
-            name: "켈리",
+            name: "하이트진로",
             workerNumber: void 0,
             info: "스푸너, 모닝케어, 아이셔, 비타500 젤리 일반 판촉 행사",
           },
           {
-            name: "대선",
+            name: "대선주조",
             workerNumber: void 0,
             info: "간만세, 벌꿀 일반 판촉 행사",
           },
           {
-            name: "새로",
+            name: "롯데주류",
             workerNumber: void 0,
             info: "소주잔, 핸드크림 일반 판촉 행사",
           },
