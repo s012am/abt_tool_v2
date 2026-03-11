@@ -207,9 +207,9 @@
               )
               .concat(l(e["다. 대선주조"], !1), "T (")
               .concat(l(e["다. 대선주조"], !0), "%)\n- 대선(C1 포함): ")
-              .concat(e["다. 대선주조"]["대선(C1포함)"].tables, "T (")
+              .concat(e["다. 대선주조"]["대선(C1 포함)"].tables, "T (")
               .concat(
-                e["다. 대선주조"]["대선(C1포함)"].percentage,
+                e["다. 대선주조"]["대선(C1 포함)"].percentage,
                 "%)\n- 부산: ",
               )
               .concat(e["다. 대선주조"]["부산"].tables, "T (")
@@ -221,9 +221,9 @@
               .concat(e["다. 대선주조"]["기타"].percentage, "%)\n\n라. 롯데: ")
               .concat(l(e["라. 롯데"], !1), "T (")
               .concat(l(e["라. 롯데"], !0), "%)\n- 새로(살구 포함): ")
-              .concat(e["라. 롯데"]["새로"].tables, "T (")
+              .concat(e["라. 롯데"]["새로(살구 포함)"].tables, "T (")
               .concat(
-                e["라. 롯데"]["새로"].percentage,
+                e["라. 롯데"]["새로(살구 포함)"].percentage,
                 "%)\n- 청하(별빛청하 포함): ",
               )
               .concat(e["라. 롯데"]["청하(별빛청하 포함)"].tables, "T (")
@@ -271,11 +271,11 @@
             .concat(e["가. 무학"]["부산갈매기"].tables, "T - ")
             .concat(
               e["가. 무학"]["부산갈매기"].percentage,
-              "%\n대선(C1포함) : ",
+              "%\n대선(C1 포함) : ",
             )
-            .concat(e["다. 대선주조"]["대선(C1포함)"].tables, "T - ")
+            .concat(e["다. 대선주조"]["대선(C1 포함)"].tables, "T - ")
             .concat(
-              e["다. 대선주조"]["대선(C1포함)"].percentage,
+              e["다. 대선주조"]["대선(C1 포함)"].percentage,
               "%\n부산 : ",
             )
             .concat(e["다. 대선주조"]["부산"].tables, "T - ")
@@ -284,9 +284,9 @@
             .concat(e["나. 하이트진로"]["진로"].percentage, "%\n참이슬 : ")
             .concat(e["나. 하이트진로"]["참이슬"].tables, "T - ")
             .concat(e["나. 하이트진로"]["참이슬"].percentage, "%\n새로: ")
-            .concat(e["라. 롯데"]["새로"].tables, "T - ")
+            .concat(e["라. 롯데"]["새로(살구 포함)"].tables, "T - ")
             .concat(
-              e["라. 롯데"]["새로"].percentage,
+              e["라. 롯데"]["새로(살구 포함)"].percentage,
               "%\n청하(별빛청하 포함): ",
             )
             .concat(e["라. 롯데"]["청하(별빛청하 포함)"].tables, "T - ")
@@ -479,11 +479,11 @@
                 }),
                 (0, r.jsxs)("p", {
                   children: [
-                    "대선(C1포함) : ",
-                    t["다. 대선주조"]["대선(C1포함)"].tables,
+                    "대선(C1 포함) : ",
+                    t["다. 대선주조"]["대선(C1 포함)"].tables,
                     "T -",
                     " ",
-                    t["다. 대선주조"]["대선(C1포함)"].percentage,
+                    t["다. 대선주조"]["대선(C1 포함)"].percentage,
                     "%",
                   ],
                 }),
@@ -520,10 +520,10 @@
                 (0, r.jsxs)("p", {
                   children: [
                     "새로: ",
-                    t["라. 롯데"]["새로"].tables,
+                    t["라. 롯데"]["새로(살구 포함)"].tables,
                     "T -",
                     " ",
-                    t["라. 롯데"]["새로"].percentage,
+                    t["라. 롯데"]["새로(살구 포함)"].percentage,
                     "%",
                   ],
                 }),
@@ -1002,12 +1002,12 @@
             기타: { tables: 0, percentage: 0 },
           },
           "다. 대선주조": {
-            "대선(C1포함)": { tables: 0, percentage: 0 },
+            "대선(C1 포함)": { tables: 0, percentage: 0 },
             부산: { tables: 0, percentage: 0 },
             기타: { tables: 0, percentage: 0 },
           },
           "라. 롯데": {
-            새로: { tables: 0, percentage: 0 },
+            "새로(살구 포함)": { tables: 0, percentage: 0 },
             "청하(별빛청하 포함)": { tables: 0, percentage: 0 },
             기타: { tables: 0, percentage: 0 },
           },
