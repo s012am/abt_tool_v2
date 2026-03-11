@@ -1141,7 +1141,7 @@
           children: [
             (0, r.jsx)("h1", {
               className: "text-lg font-bold",
-              children: "타사 판촉인원",
+              children: "타사 할동",
             }),
             t.map((e, t) =>
               (0, r.jsx)(
