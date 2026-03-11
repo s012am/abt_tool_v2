@@ -388,7 +388,7 @@
         return (0, r.jsxs)("section", {
           children: [
             (0, r.jsx)("h1", {
-              children: "3. 타사 판촉인원 / 판촉물 및 판촉내용",
+              children: "3. 타사활동",
             }),
             (0, r.jsx)("div", {
               children: t.map((e, t) =>
@@ -396,11 +396,10 @@
                   "p",
                   {
                     children: [
+                      "- ",
                       e.name,
-                      " ",
-                      e.workerNumber || 0,
-                      "명 / ",
-                      e.info,
+                      ": ",
+                      (e.info || "").trim().length ? e.info : "없음",
                     ],
                   },
                   "".concat(t, "-").concat(e.name),
@@ -415,7 +414,7 @@
         return (0, r.jsxs)("section", {
           children: [
             (0, r.jsx)("h1", {
-              children: "4. ★자사 판촉물 재고량★ (박스로 기입해서 올려주세요)",
+              children: "5. 판촉물 재고량",
             }),
             (0, r.jsx)("div", {
               children: t.map((e, t) =>
@@ -768,15 +767,26 @@
                               orderSums: m,
                               additionalOrderSums: v,
                             }),
-                            x.includes(c) &&
-                              (0, r.jsxs)("div", {
-                                children: [
-                                  (0, r.jsx)("br", {}),
-                                  (0, r.jsx)(j, { otherCompanyPromotions: w }),
-                                  (0, r.jsx)("br", {}),
-                                  (0, r.jsx)(g, { promotionStocks: y }),
-                                ],
-                              }),
+                            (0, r.jsxs)("div", {
+                              children: [
+                                (0, r.jsx)("br", {}),
+                                (0, r.jsx)(j, { otherCompanyPromotions: w }),
+                                (0, r.jsx)("br", {}),
+                                (0, r.jsxs)("section", {
+                                  children: [
+                                    (0, r.jsx)("h1", { children: "4. 특이사항" }),
+                                    (0, r.jsx)("p", { children: "- 없음" }),
+                                  ],
+                                }),
+                                x.includes(c) &&
+                                  (0, r.jsxs)(r.Fragment, {
+                                    children: [
+                                      (0, r.jsx)("br", {}),
+                                      (0, r.jsx)(g, { promotionStocks: y }),
+                                    ],
+                                  }),
+                              ],
+                            }),
                           ],
                         }),
                         "광안" === c &&
