@@ -1,5 +1,8 @@
 # ABT TOOL (정적 배포용)
 
+기존 ABT TOOL을 수정한 파일입니다.
+원본 링크: https://abt-tool.pages.dev/sale
+
 이 폴더는 `sale.html`과 Next.js 정적 자산(`_next/`)로 구성된 **정적 사이트**입니다.
 
 ## 로컬 실행
