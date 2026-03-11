@@ -155,10 +155,12 @@
               })
               .join("\n"),
             j = c
-              .map((e) => {
-                let t = (e.info || "").trim();
-                return "- ".concat(e.name, ": ").concat(t.length ? t : "없음");
-              })
+              .map((e) =>
+                "- "
+                  .concat(e.name, ": 대판팀 ")
+                  .concat(e.salesTeam || 0, "명 / 행사팀 ")
+                  .concat(e.eventTeam || 0, "명"),
+              )
               .join("\n"),
             g = i
               .map((e) =>
@@ -398,8 +400,11 @@
                     children: [
                       "- ",
                       e.name,
-                      ": ",
-                      (e.info || "").trim().length ? e.info : "없음",
+                      ": 대판팀 ",
+                      e.salesTeam || 0,
+                      "명 / 행사팀 ",
+                      e.eventTeam || 0,
+                      "명",
                     ],
                   },
                   "".concat(t, "-").concat(e.name),
@@ -985,18 +990,18 @@
         q = [
           {
             name: "하이트진로",
-            workerNumber: void 0,
-            info: "스푸너, 모닝케어, 아이셔, 비타500 젤리 일반 판촉 행사",
+            salesTeam: void 0,
+            eventTeam: void 0,
           },
           {
             name: "대선주조",
-            workerNumber: void 0,
-            info: "간만세, 벌꿀 일반 판촉 행사",
+            salesTeam: void 0,
+            eventTeam: void 0,
           },
           {
             name: "롯데주류",
-            workerNumber: void 0,
-            info: "소주잔, 핸드크림 일반 판촉 행사",
+            salesTeam: void 0,
+            eventTeam: void 0,
           },
         ],
         F = {
@@ -1066,18 +1071,19 @@
       function A(e) {
         let {
             companyName: t,
-            promotionInfo: a,
             handleOtherCompanyPromotion: s,
           } = e,
           [l, c] = (0, n.useState)(),
-          [o, d] = (0, n.useState)(a),
+          [o, d] = (0, n.useState)(),
           i = (e) => {
             let a = parseInt(e),
               r = Number.isNaN(a) ? void 0 : a;
-            (c(r), s({ name: t, workerNumber: r || 0, info: o }));
+            (c(r), s({ name: t, salesTeam: r || 0, eventTeam: o || 0 }));
           },
           u = (e) => {
-            (d(e), s({ name: t, workerNumber: l || 0, info: e }));
+            let a = parseInt(e),
+              r = Number.isNaN(a) ? void 0 : a;
+            (d(r), s({ name: t, salesTeam: l || 0, eventTeam: r || 0 }));
           };
         return (0, r.jsxs)("div", {
           className: "flex flex-row gap-2 items-center align-middle py-1.5",
@@ -1088,6 +1094,10 @@
                 (0, r.jsx)("span", {
                   className: "whitespace-nowrap pr-1",
                   children: t,
+                }),
+                (0, r.jsx)("span", {
+                  className: "whitespace-nowrap pr-1",
+                  children: "대판팀",
                 }),
                 (0, r.jsx)("input", {
                   type: "number",
@@ -1101,12 +1111,24 @@
                 (0, r.jsx)("span", { children: "명" }),
               ],
             }),
-            (0, r.jsx)("span", { children: "/" }),
-            (0, r.jsx)("input", {
-              type: "text",
-              className: "border border-gray-300 rounded p-1 w-full text-black",
-              value: o,
-              onChange: (e) => u(e.target.value),
+            (0, r.jsxs)("div", {
+              className: "flex flex-row items-center align-middle",
+              children: [
+                (0, r.jsx)("span", {
+                  className: "whitespace-nowrap pr-1",
+                  children: "행사팀",
+                }),
+                (0, r.jsx)("input", {
+                  type: "number",
+                  pattern: "\\d*",
+                  className:
+                    "border border-gray-300 rounded p-1 w-[60px] text-black",
+                  value: void 0 !== o ? o : "",
+                  placeholder: "0",
+                  onChange: (e) => u(e.target.value),
+                }),
+                (0, r.jsx)("span", { children: "명" }),
+              ],
             }),
           ],
         });
@@ -1119,14 +1141,13 @@
           children: [
             (0, r.jsx)("h1", {
               className: "text-lg font-bold",
-              children: "타사 판촉인원 / 판촉물 및 판촉내용",
+              children: "타사 판촉인원",
             }),
             t.map((e, t) =>
               (0, r.jsx)(
                 A,
                 {
                   companyName: e.name,
-                  promotionInfo: e.info,
                   handleOtherCompanyPromotion: a,
                 },
                 t,
@@ -1903,29 +1924,25 @@
                   orderSums: N,
                   additionalOrderSums: w,
                 }),
+                (0, r.jsx)(L, {
+                  otherCompanyPromotions: k,
+                  handleOtherCompanyPromotion: (e) => {
+                    S((t) => {
+                      let a = t.findIndex((t) => t.name === e.name);
+                      if (-1 === a) return [...t, e];
+                      {
+                        let r = [...t];
+                        return ((r[a] = e), r);
+                      }
+                    });
+                  },
+                }),
                 x.includes(j) &&
-                  (0, r.jsxs)(r.Fragment, {
-                    children: [
-                      (0, r.jsx)(L, {
-                        otherCompanyPromotions: k,
-                        handleOtherCompanyPromotion: (e) => {
-                          S((t) => {
-                            let a = t.findIndex((t) => t.name === e.name);
-                            if (-1 === a) return [...t, e];
-                            {
-                              let r = [...t];
-                              return ((r[a] = e), r);
-                            }
-                          });
-                        },
-                      }),
-                      (0, r.jsx)(B, {
-                        promotionStocks: O,
-                        handlePromotionStockChange: (e) => {
-                          T(e);
-                        },
-                      }),
-                    ],
+                  (0, r.jsx)(B, {
+                    promotionStocks: O,
+                    handlePromotionStockChange: (e) => {
+                      T(e);
+                    },
                   }),
                 (0, r.jsx)("p", {
                   className: "text-xs text-gray-600",
