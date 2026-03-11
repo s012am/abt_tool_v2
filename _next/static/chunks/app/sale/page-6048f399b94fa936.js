@@ -155,12 +155,10 @@
               })
               .join("\n"),
             j = c
-              .map((e) =>
-                ""
-                  .concat(e.name, " ")
-                  .concat(e.workerNumber || 0, "명 / ")
-                  .concat(e.info),
-              )
+              .map((e) => {
+                let t = (e.info || "").trim();
+                return "- ".concat(e.name, ": ").concat(t.length ? t : "없음");
+              })
               .join("\n"),
             g = i
               .map((e) =>
@@ -168,65 +166,75 @@
               )
               .join("\n"),
             N = ""
-              .concat(u(a), "\n1. 점유비\n  - 총 방문업소: ")
-              .concat(t, "개\n  - 총 테이블 수: ")
-              .concat(s(e), "t\n\n가. 무학: ")
-              .concat(l(e["가. 무학"], !1), "t (")
-              .concat(l(e["가. 무학"], !0), "%)\n  - 좋은데이: ")
-              .concat(e["가. 무학"]["좋은데이"].tables, "t (")
+              .concat(u(a), "\n\n1. 점유비\n- 총 방문업소: ")
+              .concat(t, "개\n- 총 테이블 수: ")
+              .concat(s(e), "T\n\n가. 무학: ")
+              .concat(l(e["가. 무학"], !1), "T (")
+              .concat(l(e["가. 무학"], !0), "%)\n- 좋은데이: ")
+              .concat(e["가. 무학"]["좋은데이"].tables, "T (")
               .concat(
                 e["가. 무학"]["좋은데이"].percentage,
-                "%)\n  - 톡시리즈: ",
+                "%)\n- 톡시리즈: ",
               )
-              .concat(e["가. 무학"]["톡시리즈"].tables, "t (")
+              .concat(e["가. 무학"]["톡시리즈"].tables, "T (")
               .concat(
                 e["가. 무학"]["톡시리즈"].percentage,
-                "%)\n  - 부산갈매기: ",
+                "%)\n- 부산갈매기: ",
               )
-              .concat(e["가. 무학"]["부산갈매기"].tables, "t (")
+              .concat(e["가. 무학"]["부산갈매기"].tables, "T (")
               .concat(
                 e["가. 무학"]["부산갈매기"].percentage,
+                "%)\n- 기타: ",
+              )
+              .concat(e["가. 무학"]["기타"].tables, "T (")
+              .concat(
+                e["가. 무학"]["기타"].percentage,
                 "%)\n\n나. 하이트진로: ",
               )
-              .concat(l(e["나. 하이트진로"], !1), "t (")
-              .concat(l(e["나. 하이트진로"], !0), "%)\n  - 참이슬: ")
-              .concat(e["나. 하이트진로"]["참이슬"].tables, "t (")
+              .concat(l(e["나. 하이트진로"], !1), "T (")
+              .concat(l(e["나. 하이트진로"], !0), "%)\n- 참이슬: ")
+              .concat(e["나. 하이트진로"]["참이슬"].tables, "T (")
               .concat(
                 e["나. 하이트진로"]["참이슬"].percentage,
-                "%)\n  - 진로: ",
+                "%)\n- 진로: ",
               )
-              .concat(e["나. 하이트진로"]["진로"].tables, "t (")
-              .concat(e["나. 하이트진로"]["진로"].percentage, "%)\n  - 기타: ")
-              .concat(e["나. 하이트진로"]["기타"].tables, "t (")
+              .concat(e["나. 하이트진로"]["진로"].tables, "T (")
+              .concat(e["나. 하이트진로"]["진로"].percentage, "%)\n- 기타: ")
+              .concat(e["나. 하이트진로"]["기타"].tables, "T (")
               .concat(
                 e["나. 하이트진로"]["기타"].percentage,
                 "%)\n\n다. 대선주조: ",
               )
-              .concat(l(e["다. 대선주조"], !1), "t (")
-              .concat(l(e["다. 대선주조"], !0), "%)\n  - 대선(C1포함): ")
-              .concat(e["다. 대선주조"]["대선(C1포함)"].tables, "t (")
+              .concat(l(e["다. 대선주조"], !1), "T (")
+              .concat(l(e["다. 대선주조"], !0), "%)\n- 대선(C1 포함): ")
+              .concat(e["다. 대선주조"]["대선(C1포함)"].tables, "T (")
               .concat(
                 e["다. 대선주조"]["대선(C1포함)"].percentage,
-                "%)\n  - 부산: ",
+                "%)\n- 부산: ",
               )
-              .concat(e["다. 대선주조"]["부산"].tables, "t (")
+              .concat(e["다. 대선주조"]["부산"].tables, "T (")
               .concat(
                 e["다. 대선주조"]["부산"].percentage,
-                "%)\n  - 기타: ",
+                "%)\n- 기타: ",
               )
-              .concat(e["다. 대선주조"]["기타"].tables, "t (")
+              .concat(e["다. 대선주조"]["기타"].tables, "T (")
               .concat(e["다. 대선주조"]["기타"].percentage, "%)\n\n라. 롯데: ")
-              .concat(l(e["라. 롯데"], !1), "t (")
-              .concat(l(e["라. 롯데"], !0), "%)\n  - 새로: ")
-              .concat(e["라. 롯데"]["새로"].tables, "t (")
+              .concat(l(e["라. 롯데"], !1), "T (")
+              .concat(l(e["라. 롯데"], !0), "%)\n- 새로(살구 포함): ")
+              .concat(e["라. 롯데"]["새로"].tables, "T (")
               .concat(
                 e["라. 롯데"]["새로"].percentage,
-                "%)\n  - 청하(별빛청하 포함): ",
+                "%)\n- 청하(별빛청하 포함): ",
               )
-              .concat(e["라. 롯데"]["청하(별빛청하 포함)"].tables, "t (")
+              .concat(e["라. 롯데"]["청하(별빛청하 포함)"].tables, "T (")
               .concat(
                 e["라. 롯데"]["청하(별빛청하 포함)"].percentage,
-                "%)\n\n마. 기타: 0t (0%)\n\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
+                "%)\n- 기타: ",
+              )
+              .concat(e["라. 롯데"]["기타"].tables, "T (")
+              .concat(
+                e["라. 롯데"]["기타"].percentage,
+                "%)\n\n마. 기타 주류회사: 0T (0.0%)\n※ 별도 제품 확인 시 항목 추가 입력\n\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
               )
               .concat(f, "\n\n나. 총 전환: ")
               .concat(h[1] || 0, "t(좋은데이) / ")
@@ -238,13 +246,13 @@
               .concat(p[3] || 0, "t(톡톡)\n")
               .concat(b, "\n");
           return (
-            x.includes(a) &&
-              (N += "3. 타사 판촉인원 / 판촉물 및 판촉내용\n"
-                .concat(
-                  j,
-                  "\n\n4. ★자사 판촉물 재고량★ (박스로 기입해서 올려주세요)\n",
-                )
-                .concat(g)),
+            (N += "\n3. 타사 활동\n".concat(j, "\n\n")),
+            x.includes(a)
+              ? (N += "4. 특이사항\n- 없음\n\n5. 판촉물 재고량\n".concat(
+                  g,
+                  "\n",
+                ))
+              : (N += "4. 특이사항\n- 없음\n"),
             N
           );
         },
@@ -986,6 +994,7 @@
             좋은데이: { tables: 0, percentage: 0 },
             톡시리즈: { tables: 0, percentage: 0 },
             부산갈매기: { tables: 0, percentage: 0 },
+            기타: { tables: 0, percentage: 0 },
           },
           "나. 하이트진로": {
             참이슬: { tables: 0, percentage: 0 },
@@ -1000,6 +1009,7 @@
           "라. 롯데": {
             새로: { tables: 0, percentage: 0 },
             "청하(별빛청하 포함)": { tables: 0, percentage: 0 },
+            기타: { tables: 0, percentage: 0 },
           },
         };
       function V(e) {
