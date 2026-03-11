@@ -686,7 +686,7 @@
                               children: ["\xa0\xa0- 총 방문업소: ", a],
                             }),
                             (0, r.jsxs)("p", {
-                              children: ["\xa0\xa0- 총 테이블 수: ", z, "t"],
+                              children: ["\xa0\xa0- 총 테이블 수: ", z, "T"],
                             }),
                             (0, r.jsx)("br", {}),
                             (0, r.jsxs)("section", {
@@ -707,7 +707,7 @@
                                             (0, r.jsxs)("span", {
                                               children: [
                                                 l(t[a], !1),
-                                                "t (",
+                                                "T (",
                                                 l(t[a], !0),
                                                 "%)",
                                               ],
@@ -724,7 +724,7 @@
                                                 t,
                                                 ": ",
                                                 a.tables,
-                                                "t (",
+                                                "T (",
                                                 a.percentage,
                                                 "%)",
                                               ],
@@ -739,7 +739,7 @@
                                   );
                                 }),
                                 (0, r.jsx)("p", {
-                                  children: "마. 기타: 0t (0%)",
+                                  children: "마. 기타: 0T (0%)",
                                 }),
                               ],
                             }),
