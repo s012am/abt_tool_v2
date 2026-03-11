@@ -1141,7 +1141,7 @@
           children: [
             (0, r.jsx)("h1", {
               className: "text-lg font-bold",
-              children: "타사 할동",
+              children: "타사 활동",
             }),
             t.map((e, t) =>
               (0, r.jsx)(
@@ -1874,7 +1874,7 @@
                                   placeholder: "0",
                                   onChange: (t) => I(a, e, t.target.value),
                                 }),
-                                "t",
+                                "T",
                               ],
                             },
                             "drink-".concat(t),
