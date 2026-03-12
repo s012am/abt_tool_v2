@@ -1294,13 +1294,13 @@
                     (0, r.jsx)("input", {
                       type: "text",
                       className:
-                        "border border-gray-300 rounded p-1 w-1/2 text-black",
+                        "border border-gray-300 rounded p-1 w-1/4 text-black",
                       placeholder: "제품명",
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
                     }),
                     (0, r.jsxs)("div", {
-                      className: "flex items-center w-1/4",
+                      className: "flex items-center w-1/2",
                       children: [
                         (0, r.jsx)("input", {
                           type: "number",
