@@ -1304,7 +1304,7 @@
                     (0, r.jsx)("input", {
                       type: "text",
                       className:
-                        "border border-gray-300 rounded p-1 w-1/4 text-black flex-shrink-0 -ml-1",
+                        "border border-gray-300 rounded p-1 w-1/2 text-black",
                       placeholder: "제품명",
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
@@ -1316,7 +1316,7 @@
                           type: "number",
                           pattern: "\\d*",
                           className:
-                            "border border-gray-300 rounded p-1 w-1/2 text-black",
+                            "border border-gray-300 rounded p-1 w-1/4 text-black",
                           placeholder: "0",
                           value: void 0 === e.tables ? "" : e.tables,
                           onChange: (e) => c(e.target.value, n),
@@ -1326,7 +1326,7 @@
                     }),
                     (0, r.jsx)("button", {
                       type: "button",
-                      className: "ml-2 p-1 bg-red-500 text-white rounded flex-shrink-0",
+                      className: "ml-2 p-1 bg-red-500 text-white rounded",
                       onClick: () => s(n),
                       children: "삭제",
                     }),
