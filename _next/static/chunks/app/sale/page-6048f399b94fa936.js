@@ -1042,7 +1042,7 @@
             기타: { tables: 0, percentage: 0 },
           },
         },
-        Qb = [{ name: "", tables: 0 }];
+        Qb = [{ name: "", tables: void 0 }];
       function V(e) {
         let { selectedBusinessZone: t, handleSelectBusinessZone: a } = e,
           [s, l] = (0, n.useState)(!1),
@@ -1261,8 +1261,8 @@
           },
           c = (e, r) => {
             let n = [...t],
-              o = "" === e ? 0 : parseInt(e, 10);
-            ((n[r] = { ...n[r], tables: Number.isNaN(o) ? 0 : o }), a(n));
+              o = "" === e ? void 0 : parseInt(e, 10);
+            ((n[r] = { ...n[r], tables: "" === e || Number.isNaN(o) ? void 0 : o }), a(n));
           };
         return (0, r.jsxs)("section", {
           className:
@@ -1279,7 +1279,7 @@
                   type: "button",
                   className: "bg-sky-500 text-white rounded p-1 text-sm",
                   onClick: () => {
-                    a([...t, { name: "", tables: 0 }]);
+                    a([...t, { name: "", tables: void 0 }]);
                   },
                   children: "제품 추가하기",
                 }),
@@ -1289,12 +1289,12 @@
               (0, r.jsxs)(
                 "div",
                 {
-                  className: "flex flex-row items-center gap-2 mt-2",
+                  className: "flex flex-row flex-nowrap justify-between items-center mb-2",
                   children: [
                     (0, r.jsx)("input", {
                       type: "text",
                       className:
-                        "border border-gray-300 rounded p-1 w-1/3 text-black",
+                        "border border-gray-300 rounded p-1 w-24 max-w-[30%] text-black flex-shrink-0",
                       placeholder: "제품명",
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
@@ -1303,15 +1303,15 @@
                       type: "number",
                       pattern: "\\d*",
                       className:
-                        "border border-gray-300 rounded p-1 w-1/2 text-black",
+                        "border border-gray-300 rounded p-1 w-1/4 text-black",
                       placeholder: "0",
                       value: void 0 === e.tables ? "" : e.tables,
                       onChange: (e) => c(e.target.value, n),
                     }),
-                    (0, r.jsx)("span", { children: "T" }),
+                    (0, r.jsx)("span", { children: "T", className: "flex-shrink-0" }),
                     (0, r.jsx)("button", {
                       type: "button",
-                      className: "p-1 bg-red-500 text-white rounded text-sm",
+                      className: "ml-2 p-1 bg-red-500 text-white rounded flex-shrink-0",
                       onClick: () => s(n),
                       children: "삭제",
                     }),
