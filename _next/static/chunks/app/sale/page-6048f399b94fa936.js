@@ -245,7 +245,14 @@
                       .map(
                         (r) =>
                           "- "
-                            .concat(r[0], ": ", r[1].tables, "T (", r[1].percentage, "%)\n"),
+                            .concat(
+                              r[0],
+                              ": ",
+                              (r[1] ? r[1].tables : 0),
+                              "T (",
+                              (r[1] ? r[1].percentage : 0),
+                              "%)\n",
+                            ),
                       )
                       .join("")
                   : "0T (0.0%)\n",
