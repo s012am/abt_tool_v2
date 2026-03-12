@@ -1420,7 +1420,8 @@
         G,
         J,
         K,
-        Q;
+        Q,
+        ee = a(883);
       (function () {
         var st = (function () {
           try {
@@ -1540,7 +1541,6 @@
           }
         };
       })();
-        ee = a(883);
       function et(e) {
         let { shop: t, onDelete: a } = e,
           [s, l] = (0, n.useState)(!1),
