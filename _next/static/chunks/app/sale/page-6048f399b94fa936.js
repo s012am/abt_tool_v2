@@ -236,7 +236,22 @@
               .concat(e["라. 롯데"]["기타"].tables, "T (")
               .concat(
                 e["라. 롯데"]["기타"].percentage,
-                "%)\n\n마. 기타 주류회사: 0T (0.0%)\n\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
+                "%)\n\n마. 기타 주류회사: ",
+              )
+              .concat(
+                (e["마. 기타 주류회사"] &&
+                Object.keys(e["마. 기타 주류회사"]).length > 0
+                  ? Object.entries(e["마. 기타 주류회사"])
+                      .map(
+                        (r) =>
+                          "- "
+                            .concat(r[0], ": ", r[1].tables, "T (", r[1].percentage, "%)\n"),
+                      )
+                      .join("")
+                  : "0T (0.0%)\n",
+              )
+              .concat(
+                "\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
               )
               .concat(f, "\n\n나. 총 전환: ")
               .concat(h[1] || 0, "T(좋은데이) / ")
@@ -738,9 +753,6 @@
                                     a,
                                   );
                                 }),
-                                (0, r.jsx)("p", {
-                                  children: "마. 기타 주류회사: 0T (0%)",
-                                }),
                               ],
                             }),
                             (0, r.jsx)("br", {}),
@@ -1027,7 +1039,8 @@
             "청하(별빛청하 포함)": { tables: 0, percentage: 0 },
             기타: { tables: 0, percentage: 0 },
           },
-        };
+        },
+        Qb = [{ name: "", tables: 0 }];
       function V(e) {
         let { selectedBusinessZone: t, handleSelectBusinessZone: a } = e,
           [s, l] = (0, n.useState)(!1),
@@ -1227,6 +1240,82 @@
                   ],
                 },
                 t,
+              ),
+            ),
+          ],
+        });
+      }
+      function Uc(e) {
+        let { otherDrinks: t, handleOtherDrinks: a } = e,
+          s = (e) => {
+            if (e > -1 && e < t.length) {
+              let r = [...t];
+              (r.splice(e, 1), a(r));
+            }
+          },
+          l = (e, r) => {
+            let n = [...t];
+            ((n[r] = { ...n[r], name: e }), a(n));
+          },
+          c = (e, r) => {
+            let n = [...t],
+              o = "" === e ? 0 : parseInt(e, 10);
+            ((n[r] = { ...n[r], tables: Number.isNaN(o) ? 0 : o }), a(n));
+          };
+        return (0, r.jsxs)("section", {
+          className:
+            "mb-4 border border-gray-300 p-2",
+          children: [
+            (0, r.jsxs)("div", {
+              className: "flex flex-row items-center gap-3 mb-2",
+              children: [
+                (0, r.jsx)("h1", {
+                  className: "text-lg",
+                  children: "마. 기타 주류회사",
+                }),
+                (0, r.jsx)("button", {
+                  type: "button",
+                  className: "bg-sky-500 text-white rounded p-1 text-sm",
+                  onClick: () => {
+                    a([...t, { name: "", tables: 0 }]);
+                  },
+                  children: "제품 추가하기",
+                }),
+              ],
+            }),
+            t.map((e, r) =>
+              (0, r.jsxs)(
+                "div",
+                {
+                  className: "flex flex-row items-center gap-2 mt-2",
+                  children: [
+                    (0, r.jsx)("input", {
+                      type: "text",
+                      className:
+                        "border border-gray-300 rounded p-1 w-1/2 text-black",
+                      placeholder: "제품명",
+                      value: e.name || "",
+                      onChange: (e) => l(e.target.value, r),
+                    }),
+                    (0, r.jsx)("input", {
+                      type: "number",
+                      pattern: "\\d*",
+                      className:
+                        "border border-gray-300 rounded p-1 w-1/2 text-black",
+                      placeholder: "0",
+                      value: void 0 === e.tables ? "" : e.tables,
+                      onChange: (e) => c(e.target.value, r),
+                    }),
+                    (0, r.jsx)("span", { children: "T" }),
+                    (0, r.jsx)("button", {
+                      type: "button",
+                      className: "p-1 bg-red-500 text-white rounded text-sm",
+                      onClick: () => s(r),
+                      children: "삭제",
+                    }),
+                  ],
+                },
+                r,
               ),
             ),
           ],
@@ -1755,6 +1844,7 @@
           [w, y] = (0, n.useState)(o(b)),
           [k, S] = (0, n.useState)(q),
           [O, T] = (0, n.useState)(P),
+          [U, Ua] = (0, n.useState)(Qb),
           [R, Z] = (0, n.useState)(!1),
           [E, D] = (0, n.useState)({ show: !1, message: "" }),
           A = (0, n.useRef)(null);
@@ -1793,7 +1883,18 @@
               return;
             }
             D((e) => ({ ...e, show: !1, message: "" }));
-            let n = c({ ...e });
+            let n = { ...e };
+            n["마. 기타 주류회사"] = {};
+            U.forEach((e) => {
+              let t = (e.name || "").trim();
+              if (t) {
+                n["마. 기타 주류회사"][t] = {
+                  tables: Number(e.tables) || 0,
+                  percentage: 0,
+                };
+              }
+            });
+            n = c(n);
             (t(n), s(!0), Z(!0));
             let o = Object.values(i)
               .map((e) => e["0"])
@@ -1885,6 +1986,10 @@
                     },
                     "company-".concat(t),
                   );
+                }),
+                (0, r.jsx)(Uc, {
+                  otherDrinks: U,
+                  handleOtherDrinks: Ua,
                 }),
                 (0, r.jsx)(M, {
                   orders: i,
