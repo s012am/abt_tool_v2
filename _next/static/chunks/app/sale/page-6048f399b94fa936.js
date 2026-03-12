@@ -1308,21 +1308,16 @@
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
                     }),
-                    (0, r.jsxs)("span", {
-                      className: "inline-flex items-center gap-0",
-                      children: [
-                        (0, r.jsx)("input", {
-                          type: "number",
-                          pattern: "\\d*",
-                          className:
-                            "border border-gray-300 rounded p-1 w-1/2 text-black",
-                          placeholder: "0",
-                          value: void 0 === e.tables ? "" : e.tables,
-                          onChange: (e) => c(e.target.value, n),
-                        }),
-                        "T",
-                      ],
+                    (0, r.jsx)("input", {
+                      type: "number",
+                      pattern: "\\d*",
+                      className:
+                        "border border-gray-300 rounded p-1 w-1/2 text-black",
+                      placeholder: "0",
+                      value: void 0 === e.tables ? "" : e.tables,
+                      onChange: (e) => c(e.target.value, n),
                     }),
+                    "T",
                     (0, r.jsx)("button", {
                       type: "button",
                       className: "ml-2 p-1 bg-red-500 text-white rounded flex-shrink-0",
