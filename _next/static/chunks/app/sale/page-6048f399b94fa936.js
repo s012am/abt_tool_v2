@@ -236,7 +236,7 @@
               .concat(e["라. 롯데"]["기타"].tables, "T (")
               .concat(
                 e["라. 롯데"]["기타"].percentage,
-                "%)\n\n마. 기타 주류회사: 0T (0.0%)\n※ 별도 제품 확인 시 항목 추가 입력\n\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
+                "%)\n\n마. 기타 주류회사: 0T (0.0%)\n\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
               )
               .concat(f, "\n\n나. 총 전환: ")
               .concat(h[1] || 0, "T(좋은데이) / ")
@@ -248,7 +248,7 @@
               .concat(p[3] || 0, "T(톡톡)\n")
               .concat(b, "\n");
           return (
-            (N += "\n3. 타사 활동\n".concat(j, "\n\n")),
+            (N += "3. 타사 활동\n".concat(j, "\n\n")),
             x.includes(a)
               ? (N += "4. 특이사항\n- 없음\n\n5. 판촉물 재고량\n".concat(
                   g,
@@ -390,7 +390,7 @@
         return (0, r.jsxs)("section", {
           children: [
             (0, r.jsx)("h1", {
-              children: "3. 타사활동",
+              children: "3. 타사 활동",
             }),
             (0, r.jsx)("div", {
               children: t.map((e, t) =>
@@ -739,7 +739,7 @@
                                   );
                                 }),
                                 (0, r.jsx)("p", {
-                                  children: "마. 기타: 0T (0%)",
+                                  children: "마. 기타 주류회사: 0T (0%)",
                                 }),
                               ],
                             }),
@@ -984,6 +984,7 @@
       let _ = { 0: "", 1: 0, 2: 0, 3: 0 },
         P = [
           { name: "헛개밸런스", quantity: void 0 },
+          { name: "청춘케어", quantity: void 0},
           { name: "물티슈", quantity: void 0 },
           { name: "쫀디기", quantity: void 0 },
         ],
