@@ -239,23 +239,18 @@
                 "%)\n\n마. 기타 주류회사: ",
               )
               .concat(
-                (e["마. 기타 주류회사"] &&
-                Object.keys(e["마. 기타 주류회사"]).length > 0
-                  ? Object.entries(e["마. 기타 주류회사"])
-                      .map(
-                        (r) =>
-                          "- "
-                            .concat(
-                              r[0],
-                              ": ",
-                              (r[1] ? r[1].tables : 0),
-                              "T (",
-                              (r[1] ? r[1].percentage : 0),
-                              "%)\n",
-                            ),
-                      )
-                      .join("")
-                  : "0T (0.0%)\n",
+                (function () {
+                  var n = e["마. 기타 주류회사"];
+                  if (!n || Object.keys(n).length === 0)
+                    return "0T (0.0%)\n";
+                  return Object.entries(n)
+                    .map(function (r) {
+                      var o = r[1] ? r[1].tables : 0;
+                      var i = r[1] ? r[1].percentage : 0;
+                      return "- " + r[0] + ": " + o + "T (" + i + "%)\n";
+                    })
+                    .join("");
+                })(),
               )
               .concat(
                 "\n2. 전환 및 추가주문\n\n가. 근무인원\n\n부산 갈매기 총 판매 병 수\n",
