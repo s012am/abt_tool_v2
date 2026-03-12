@@ -267,11 +267,11 @@
           return (
             (N += "3. 타사 활동\n".concat(j, "\n\n")),
             x.includes(a)
-              ? (N += "4. 특이사항\n- ".concat(
+              ? (N += "특이사항\n- ".concat(
                   L && L.trim() ? L.trim() : "없음",
                   "\n\n5. 판촉물 재고량\n",
                 ).concat(g, "\n"))
-              : (N += "4. 특이사항\n- ".concat(
+              : (N += "특이사항\n- ".concat(
                   L && L.trim() ? L.trim() : "없음",
                   "\n",
                 )),
@@ -1275,7 +1275,7 @@
           };
         return (0, r.jsxs)("section", {
           className:
-            "mb-4 border border-gray-300 rounded p-4",
+            "mb-4 border border-gray-300 p-2",
           children: [
             (0, r.jsxs)("div", {
               className: "flex flex-row items-center gap-3 mb-2",
@@ -2056,7 +2056,7 @@
                   },
                 }),
                 (0, r.jsxs)("section", {
-                  className: "mb-4 border border-gray-300 rounded p-4",
+                  className: "mb-4 mt-4 border border-gray-300 rounded p-4 w-full text-black",
                   children: [
                     (0, r.jsx)("h1", {
                       className: "text-lg font-bold",
@@ -2066,7 +2066,7 @@
                       type: "text",
                       className:
                         "border border-gray-300 rounded p-1 w-full text-black mt-2",
-                      placeholder: "특이사항을 입력하세요 (비워두면 없음)",
+                      placeholder: "특이사항을 입력하세요.",
                       value: eb || "",
                       onChange: (e) => ea(e.target.value),
                     }),
