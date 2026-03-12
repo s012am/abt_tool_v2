@@ -131,7 +131,7 @@
           { id: 14, name: "부곡" },
         ],
         x = ["수영", "부산대"],
-        b = (e, t, a, r, n, c, i) => {
+        b = (e, t, a, r, n, c, i, L) => {
           let m = "";
           for (let e of Object.values(r))
             m += ""
@@ -267,11 +267,14 @@
           return (
             (N += "3. 타사 활동\n".concat(j, "\n\n")),
             x.includes(a)
-              ? (N += "4. 특이사항\n- 없음\n\n5. 판촉물 재고량\n".concat(
-                  g,
+              ? (N += "4. 특이사항\n- ".concat(
+                  L && L.trim() ? L.trim() : "없음",
+                  "\n\n5. 판촉물 재고량\n",
+                ).concat(g, "\n"))
+              : (N += "4. 특이사항\n- ".concat(
+                  L && L.trim() ? L.trim() : "없음",
                   "\n",
-                ))
-              : (N += "4. 특이사항\n- 없음\n"),
+                )),
             N
           );
         },
@@ -660,7 +663,7 @@
         });
       });
       function z(e) {
-        let {
+          let {
             bskyReport: t,
             totalBisness: a,
             selectedBusinessZone: c,
@@ -670,10 +673,11 @@
             additionalOrderSums: v,
             otherCompanyPromotions: w,
             promotionStocks: y,
+            specialNotes: L,
           } = e,
           k = (0, n.useMemo)(
-            () => b(t, a, c, o, i, w, y),
-            [t, a, c, o, i, w, y],
+            () => b(t, a, c, o, i, w, y, L),
+            [t, a, c, o, i, w, y, L],
           ),
           S = (0, n.useMemo)(() => h(t, o, i), [t, o, i]),
           O = (0, n.useMemo)(() => p(t, o, i), [t, o, i]),
@@ -760,6 +764,7 @@
                                 }),
                               ],
                             }),
+                            (0, r.jsx)("br", {}),
                             (0, r.jsx)("h2", {
                               children: "2. 전환 및 추가주문",
                             }),
@@ -796,7 +801,9 @@
                                 (0, r.jsxs)("section", {
                                   children: [
                                     (0, r.jsx)("h1", { children: "4. 특이사항" }),
-                                    (0, r.jsx)("p", { children: "- 없음" }),
+                                    (0, r.jsx)("p", {
+                                      children: "- ".concat(L && L.trim() ? L.trim() : "없음"),
+                                    }),
                                   ],
                                 }),
                                 x.includes(c) &&
@@ -1849,6 +1856,7 @@
           [k, S] = (0, n.useState)(q),
           [O, T] = (0, n.useState)(P),
           [U, Ua] = (0, n.useState)(Qb),
+          [eb, ea] = (0, n.useState)(""),
           [R, Z] = (0, n.useState)(!1),
           [E, D] = (0, n.useState)({ show: !1, message: "" }),
           A = (0, n.useRef)(null);
@@ -2047,6 +2055,23 @@
                     });
                   },
                 }),
+                (0, r.jsxs)("section", {
+                  className: "mb-4 border border-gray-300 rounded p-4",
+                  children: [
+                    (0, r.jsx)("h1", {
+                      className: "text-lg font-bold",
+                      children: "4. 특이사항",
+                    }),
+                    (0, r.jsx)("input", {
+                      type: "text",
+                      className:
+                        "border border-gray-300 rounded p-1 w-full text-black mt-2",
+                      placeholder: "특이사항을 입력하세요 (비워두면 없음)",
+                      value: eb || "",
+                      onChange: (e) => ea(e.target.value),
+                    }),
+                  ],
+                }),
                 x.includes(j) &&
                   (0, r.jsx)(B, {
                     promotionStocks: O,
@@ -2080,6 +2105,7 @@
                 additionalOrderSums: w,
                 otherCompanyPromotions: k,
                 promotionStocks: O,
+                specialNotes: eb,
               }),
             (0, r.jsx)(eh, { businessZone: j }),
           ],
