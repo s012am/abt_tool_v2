@@ -247,7 +247,7 @@
                     .map(function (r) {
                       var o = r[1] ? r[1].tables : 0;
                       var i = r[1] ? r[1].percentage : 0;
-                      return "- " + r[0] + ": " + o + "T (" + i + "%)\n";
+                      return "\n- " + r[0] + ": " + o + "T (" + i + "%)";
                     })
                     .join("");
                 })(),
