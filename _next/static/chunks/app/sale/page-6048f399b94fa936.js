@@ -247,7 +247,7 @@
                     .map(function (r) {
                       var o = r[1] ? r[1].tables : 0;
                       var i = r[1] ? r[1].percentage : 0;
-                      return "\n- " + r[0] + ": " + o + "T (" + i + "%)";
+                      return "\n- " + r[0] + ": " + o + "T (" + i + "%)\n";
                     })
                     .join("");
                 })(),
@@ -708,8 +708,9 @@
                             (0, r.jsx)("br", {}),
                             (0, r.jsxs)("section", {
                               children: [
-                                Object.entries(t).map((e) => {
-                                  let [a, n] = e;
+                                Object.entries(t).map((e, i) => {
+                                  let [a, n] = e,
+                                    o = Object.entries(t);
                                   return (0, r.jsxs)(
                                     "div",
                                     {
@@ -749,7 +750,9 @@
                                             t,
                                           );
                                         }),
-                                        (0, r.jsx)("br", {}),
+                                        ...(i < o.length - 1
+                                          ? [(0, r.jsx)("br", {})]
+                                          : []),
                                       ],
                                     },
                                     a,
@@ -757,7 +760,6 @@
                                 }),
                               ],
                             }),
-                            (0, r.jsx)("br", {}),
                             (0, r.jsx)("h2", {
                               children: "2. 전환 및 추가주문",
                             }),
