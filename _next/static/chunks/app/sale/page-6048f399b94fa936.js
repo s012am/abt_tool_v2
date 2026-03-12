@@ -1014,17 +1014,17 @@
         ],
         q = [
           {
-            name: "하이트진로",
+            name: "하이트진로:",
             salesTeam: void 0,
             eventTeam: void 0,
           },
           {
-            name: "대선주조",
+            name: "대선주조:",
             salesTeam: void 0,
             eventTeam: void 0,
           },
           {
-            name: "롯데주류",
+            name: "롯데주류:",
             salesTeam: void 0,
             eventTeam: void 0,
           },
