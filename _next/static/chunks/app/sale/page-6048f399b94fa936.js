@@ -1417,10 +1417,129 @@
         }).displayName = "CardFooter"),
         a(4590));
       var X = a(8064),
-        G = (0, X.$)("47e1bd1597c696b8f1116dd51ab3491e5c6de155"),
-        J = (0, X.$)("b94f216d1dfb7aeb043175221b94fe0522be0e23"),
-        K = (0, X.$)("a119bfac6c1aa42eb567c881a9a85978f9d0d9b3"),
-        Q = (0, X.$)("80aa405da5330452cc91bed9c862ab7d003323a4"),
+        G,
+        J,
+        K,
+        Q;
+      (function () {
+        var st = (function () {
+          try {
+            if (typeof localStorage !== "undefined") {
+              localStorage.setItem("_g", "1");
+              localStorage.removeItem("_g");
+              return localStorage;
+            }
+          } catch (e) {}
+          try {
+            return typeof sessionStorage !== "undefined" ? sessionStorage : null;
+          } catch (e2) {}
+          return null;
+        })();
+        var pk = function (t) {
+          return "galmegi_" + t;
+        };
+        var gL = function (t) {
+          if (!st) return [];
+          try {
+            return JSON.parse(st.getItem(pk(t)) || "[]");
+          } catch (e) {
+            return [];
+          }
+        };
+        var sL = function (t, a) {
+          if (!st) return false;
+          try {
+            st.setItem(pk(t), JSON.stringify(a));
+            return true;
+          } catch (e) {
+            return false;
+          }
+        };
+        var _J = (0, X.$)("b94f216d1dfb7aeb043175221b94fe0522be0e23");
+        var _K = (0, X.$)("a119bfac6c1aa42eb567c881a9a85978f9d0d9b3");
+        var _G = (0, X.$)("47e1bd1597c696b8f1116dd51ab3491e5c6de155");
+        var _Q = (0, X.$)("80aa405da5330452cc91bed9c862ab7d003323a4");
+        G = async function (t) {
+          try {
+            if (await _G(t)) return true;
+          } catch (e) {}
+          try {
+            var done = false;
+            for (var i = 0; i < (st ? st.length : 0); i++) {
+              var k = st ? st.key(i) : null;
+              if (k && k.indexOf("galmegi_") === 0) {
+                var zone = k.slice(8);
+                var arr = gL(zone);
+                var prev = arr.length;
+                arr = arr.filter(function (x) {
+                  return String(x.id) !== String(t);
+                });
+                if (arr.length < prev) {
+                  sL(zone, arr);
+                  return true;
+                }
+              }
+            }
+            return false;
+          } catch (e) {
+            return false;
+          }
+        };
+        J = async function (t) {
+          try {
+            var r = await Promise.race([
+              _J(t),
+              new Promise(function (_, rej) {
+                setTimeout(function () {
+                  rej(new Error("t"));
+                }, 1500);
+              }),
+            ]);
+            if (r && Array.isArray(r)) return r;
+          } catch (e) {}
+          return gL(t);
+        };
+        K = async function (t, s) {
+          try {
+            if (!st) return false;
+            var key = pk(t || "");
+            var lst;
+            try { lst = JSON.parse(st.getItem(key) || "[]"); } catch (e) { lst = []; }
+            if (!Array.isArray(lst)) lst = [];
+            var name = String(s || "").trim() || "(이름없음)";
+            lst.push({ id: "l" + Date.now(), name: name });
+            st.setItem(key, JSON.stringify(lst));
+            return true;
+          } catch (e) {
+            return false;
+          }
+        };
+        Q = async function (t, s) {
+          try {
+            if (await _Q(t, s)) return true;
+          } catch (e) {}
+          try {
+            var done = false;
+            for (var i = 0; i < (st ? st.length : 0); i++) {
+              var k = st ? st.key(i) : null;
+              if (k && k.indexOf("galmegi_") === 0) {
+                var zone = k.slice(8);
+                var arr = gL(zone);
+                for (var j = 0; j < arr.length; j++) {
+                  if (String(arr[j].id) === String(t)) {
+                    arr[j] = { id: arr[j].id, name: s };
+                    sL(zone, arr);
+                    return true;
+                  }
+                }
+              }
+            }
+            return false;
+          } catch (e) {
+            return false;
+          }
+        };
+      })();
         ee = a(883);
       function et(e) {
         let { shop: t, onDelete: a } = e,
