@@ -1285,7 +1285,7 @@
                 }),
               ],
             }),
-            t.map((e, r) =>
+            t.map((e, n) =>
               (0, r.jsxs)(
                 "div",
                 {
@@ -1297,7 +1297,7 @@
                         "border border-gray-300 rounded p-1 w-1/2 text-black",
                       placeholder: "제품명",
                       value: e.name || "",
-                      onChange: (e) => l(e.target.value, r),
+                      onChange: (e) => l(e.target.value, n),
                     }),
                     (0, r.jsx)("input", {
                       type: "number",
@@ -1306,18 +1306,18 @@
                         "border border-gray-300 rounded p-1 w-1/2 text-black",
                       placeholder: "0",
                       value: void 0 === e.tables ? "" : e.tables,
-                      onChange: (e) => c(e.target.value, r),
+                      onChange: (e) => c(e.target.value, n),
                     }),
                     (0, r.jsx)("span", { children: "T" }),
                     (0, r.jsx)("button", {
                       type: "button",
                       className: "p-1 bg-red-500 text-white rounded text-sm",
-                      onClick: () => s(r),
+                      onClick: () => s(n),
                       children: "삭제",
                     }),
                   ],
                 },
-                r,
+                n,
               ),
             ),
           ],
