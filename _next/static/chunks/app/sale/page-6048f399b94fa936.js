@@ -2060,7 +2060,7 @@
                   children: [
                     (0, r.jsx)("h1", {
                       className: "text-lg font-bold",
-                      children: "4. 특이사항",
+                      children: "특이사항",
                     }),
                     (0, r.jsx)("input", {
                       type: "text",
