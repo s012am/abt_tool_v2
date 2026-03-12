@@ -1299,21 +1299,16 @@
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
                     }),
-                    (0, r.jsxs)("div", {
-                      className: "flex items-center w-1/2 flex-shrink-0",
-                      children: [
-                        (0, r.jsx)("input", {
-                          type: "number",
-                          pattern: "\\d*",
-                          className:
-                            "border border-gray-300 rounded p-1 flex-1 min-w-0 text-black",
-                          placeholder: "0",
-                          value: void 0 === e.tables ? "" : e.tables,
-                          onChange: (e) => c(e.target.value, n),
-                        }),
-                        (0, r.jsx)("span", { children: "T", className: "ml-1 flex-shrink-0" }),
-                      ],
+                    (0, r.jsx)("input", {
+                      type: "number",
+                      pattern: "\\d*",
+                      className:
+                        "border border-gray-300 rounded p-1 w-1/2 text-black",
+                      placeholder: "0",
+                      value: void 0 === e.tables ? "" : e.tables,
+                      onChange: (e) => c(e.target.value, n),
                     }),
+                    "T",
                     (0, r.jsx)("button", {
                       type: "button",
                       className: "ml-2 p-1 bg-red-500 text-white rounded flex-shrink-0",
