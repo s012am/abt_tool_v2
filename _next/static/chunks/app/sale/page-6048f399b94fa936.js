@@ -1266,7 +1266,7 @@
           };
         return (0, r.jsxs)("section", {
           className:
-            "mb-4 border border-gray-300 p-2",
+            "mb-4 border border-gray-300 rounded p-4",
           children: [
             (0, r.jsxs)("div", {
               className: "flex flex-row items-center gap-3 mb-2",
@@ -1294,24 +1294,29 @@
                     (0, r.jsx)("input", {
                       type: "text",
                       className:
-                        "border border-gray-300 rounded p-1 w-12 max-w-[15%] text-black flex-shrink-0",
+                        "border border-gray-300 rounded p-1 w-16 text-black flex-shrink-0",
                       placeholder: "제품명",
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
                     }),
-                    (0, r.jsx)("input", {
-                      type: "number",
-                      pattern: "\\d*",
-                      className:
-                        "border border-gray-300 rounded p-1 w-1/2 text-black",
-                      placeholder: "0",
-                      value: void 0 === e.tables ? "" : e.tables,
-                      onChange: (e) => c(e.target.value, n),
+                    (0, r.jsxs)("div", {
+                      className: "flex items-center flex-shrink-0",
+                      children: [
+                        (0, r.jsx)("input", {
+                          type: "number",
+                          pattern: "\\d*",
+                          className:
+                            "border border-gray-300 rounded p-1 w-1/2 text-black",
+                          placeholder: "0",
+                          value: void 0 === e.tables ? "" : e.tables,
+                          onChange: (e) => c(e.target.value, n),
+                        }),
+                        (0, r.jsx)("span", { children: "T", className: "ml-1" }),
+                      ],
                     }),
-                    (0, r.jsx)("span", { children: "T", className: "flex-shrink-0" }),
                     (0, r.jsx)("button", {
                       type: "button",
-                      className: "ml-2 p-1 bg-red-500 text-white rounded flex-shrink-0",
+                      className: "ml-2 mr-4 p-1 bg-red-500 text-white rounded flex-shrink-0",
                       onClick: () => s(n),
                       children: "삭제",
                     }),
