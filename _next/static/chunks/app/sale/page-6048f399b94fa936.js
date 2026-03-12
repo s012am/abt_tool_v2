@@ -1289,18 +1289,18 @@
               (0, r.jsxs)(
                 "div",
                 {
-                  className: "flex flex-row justify-between items-center mb-2",
+                  className: "flex flex-row items-center gap-1.5 mb-2 -ml-2",
                   children: [
                     (0, r.jsx)("input", {
                       type: "text",
                       className:
-                        "border border-gray-300 rounded p-1 w-1/4 text-black",
+                        "border border-gray-300 rounded p-1 w-1/4 text-black flex-shrink-0",
                       placeholder: "제품명",
                       value: e.name || "",
                       onChange: (e) => l(e.target.value, n),
                     }),
                     (0, r.jsxs)("div", {
-                      className: "flex items-center w-1/2",
+                      className: "flex items-center w-1/2 flex-shrink-0",
                       children: [
                         (0, r.jsx)("input", {
                           type: "number",
@@ -1316,7 +1316,7 @@
                     }),
                     (0, r.jsx)("button", {
                       type: "button",
-                      className: "ml-2 p-1 bg-red-500 text-white rounded flex-shrink-0",
+                      className: "ml-auto p-1 bg-red-500 text-white rounded flex-shrink-0",
                       onClick: () => s(n),
                       children: "삭제",
                     }),
