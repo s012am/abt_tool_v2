@@ -158,7 +158,7 @@
             j = c
               .map((e) =>
                 "- "
-                  .concat(e.name, ": 대판팀 ")
+                  .concat(e.name.replace(/:+$/, ""), ": 대판팀 ")
                   .concat(e.salesTeam || 0, "명 / 행사팀 ")
                   .concat(e.eventTeam || 0, "명"),
               )
@@ -268,11 +268,11 @@
           return (
             (N += "3. 타사 활동\n".concat(j, "\n\n")),
             x.includes(a)
-              ? (N += "특이사항\n- ".concat(
+              ? (N += "4. 특이사항\n- ".concat(
                   L && L.trim() ? L.trim() : "없음",
                   "\n\n5. 판촉물 재고량\n",
                 ).concat(g, "\n"))
-              : (N += "특이사항\n- ".concat(
+              : (N += "4. 특이사항\n- ".concat(
                   L && L.trim() ? L.trim() : "없음",
                   "\n",
                 )),
@@ -420,7 +420,7 @@
                   {
                     children: [
                       "- ",
-                      e.name,
+                      e.name.replace(/:+$/, ""),
                       ": 대판팀 ",
                       e.salesTeam || 0,
                       "명 / 행사팀 ",
