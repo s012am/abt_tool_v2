@@ -703,6 +703,7 @@
                           className: "border border-gray-300 my-2",
                           children: [
                             (0, r.jsx)("h1", { children: u(c) }),
+                            (0, r.jsx)("br", {}),
                             (0, r.jsx)("h2", { children: "1. 점유비" }),
                             (0, r.jsxs)("p", {
                               children: ["\xa0\xa0- 총 방문업소: ", a],
@@ -1056,40 +1057,67 @@
       function V(e) {
         let { selectedBusinessZone: t, handleSelectBusinessZone: a } = e,
           [s, l] = (0, n.useState)(!1),
+          [q, W] = (0, n.useState)(!1),
           c = (e) => {
             (a(e), l(!1));
           };
         return (0, r.jsxs)("div", {
           className: "relative",
           children: [
-            (0, r.jsxs)("button", {
-              onClick: () => l(!s),
-              className:
-                "flex justify-between items-center text-sm border border-gray-300 rounded p-1 text-black w-32 text-left",
-              children: [
-                t || "상권을 선택해주세요.",
-                (0, r.jsx)(O.Z, {
-                  className: "transition-transform duration-200 ".concat(
-                    s ? "rotate-180" : "rotate-0",
-                  ),
+            q
+              ? (0, r.jsxs)("div", {
+                  className: "flex items-center gap-2",
+                  children: [
+                    (0, r.jsx)("input", {
+                      type: "text",
+                      autoFocus: !0,
+                      placeholder: "상권명 입력",
+                      className: "border border-gray-300 rounded p-1 text-sm text-black w-32",
+                      onChange: (e) => a(e.target.value),
+                    }),
+                    (0, r.jsx)("button", {
+                      type: "button",
+                      onClick: () => { W(!1); a(m[0].name); },
+                      className: "text-xs text-gray-400 hover:text-gray-600",
+                      children: "✕",
+                    }),
+                  ],
+                })
+              : (0, r.jsxs)("button", {
+                  onClick: () => l(!s),
+                  className:
+                    "flex justify-between items-center text-sm border border-gray-300 rounded p-1 text-black w-32 text-left",
+                  children: [
+                    t || "상권을 선택해주세요.",
+                    (0, r.jsx)(O.Z, {
+                      className: "transition-transform duration-200 ".concat(
+                        s ? "rotate-180" : "rotate-0",
+                      ),
+                    }),
+                  ],
                 }),
-              ],
-            }),
-            s &&
+            !q && s &&
               (0, r.jsx)("ul", {
                 className:
-                  "absolute w-32 border border-gray-300 bg-white max-h-80 overflow-y-auto rounded shadow-md mt-1",
-                children: m.map((e) =>
-                  (0, r.jsx)(
-                    "li",
-                    {
-                      onClick: () => c(e.name),
-                      className: "p-2 text-sm hover:bg-gray-200 cursor-pointer",
-                      children: e.name,
-                    },
-                    e.id,
+                  "absolute w-32 border border-gray-300 bg-white max-h-80 overflow-y-auto rounded shadow-md mt-1 z-10",
+                children: [
+                  ...m.map((e) =>
+                    (0, r.jsx)(
+                      "li",
+                      {
+                        onClick: () => c(e.name),
+                        className: "p-2 text-sm hover:bg-gray-200 cursor-pointer",
+                        children: e.name,
+                      },
+                      e.id,
+                    ),
                   ),
-                ),
+                  (0, r.jsx)("li", {
+                    onClick: () => { W(!0); l(!1); },
+                    className: "p-2 text-sm hover:bg-gray-200 cursor-pointer border-t border-gray-200",
+                    children: "직접 입력",
+                  }, "custom"),
+                ],
               }),
           ],
         });
@@ -2203,10 +2231,6 @@
                       T(e);
                     },
                   }),
-                (0, r.jsx)("p", {
-                  className: "text-xs text-gray-600",
-                  children: '⚠️테이블 수를 수정했다면 "계산하기"를 눌러주세요.',
-                }),
                 (0, r.jsx)(C, {
                   type: "submit",
                   className:
